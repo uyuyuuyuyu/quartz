@@ -3,7 +3,7 @@
 ## 1. Fundamental Matrix Properties
 * **Inverse of a Product:** The inverse of a matrix product $AB$ is $B^{-1}A^{-1}$.
 * **Transpose of a Product:** The transpose of a matrix product $AB$ is $B^{T}A^{T}$.
-* **Inverse of a Transpose:** For any invertible matrix $A$, the inverse of its transpose is the transpose of its inverse: $(A^{T})^{-1} = (A^{-1})^{T}$. 1
+* **Inverse of a Transpose:** For any invertible matrix $A$, the inverse of its transpose is the transpose of its inverse: $(A^{T})^{-1} = (A^{-1})^{T}$.
 
 ---
 
