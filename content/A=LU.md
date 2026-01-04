@@ -18,6 +18,26 @@ Gaussian elimination transforms a suitable matrix $A$ into an upper triangular m
 * **Efficiency:** Operating on the vector $b$ costs about $n^{2}$ operations, which is negligible compared to the matrix factorization.
 * **Memory:** The computer can build $L$ "as we go" by keeping track of row subtractions, so it doesn't need to store the original matrix $A$ or the individual elimination matrices $E_{ij}$.
 
+## $LDU$ Factorization
+The $LDU$ factorization is an extension of $A=LU$ that explicitly separates the pivots into their own matrix.
+
+### The Formula
+$$A = LDU$$
+
+### Matrix Definitions
+* **$L$**: Lower triangular matrix with $1$s on the diagonal.
+* **$D$**: Diagonal matrix containing the pivots ($d_1, d_2, ..., d_n$).
+* **$U$**: Upper triangular matrix, scaled so that it has $1$s on the diagonal.
+
+### Why use $LDU$?
+It creates a symmetric representation. If the original matrix $A$ is symmetric ($A = A^T$), then $A = LDL^T$, which simplifies storage and computation significantly.
+
+### Numerical Example ($2 \times 2$)
+For $A = \begin{bmatrix} 2 & 1 \\ 8 & 7 \end{bmatrix}$:
+1. **$L$ matrix**: $\begin{bmatrix} 1 & 0 \\ 4 & 1 \end{bmatrix}$ (using multiplier 4).
+2. **$D$ matrix**: $\begin{bmatrix} 2 & 0 \\ 0 & 3 \end{bmatrix}$ (the pivots 2 and 3).
+3. **$U$ matrix**: $\begin{bmatrix} 1 & 1/2 \\ 0 & 1 \end{bmatrix}$ (Row 1 divided by pivot 2).
+
 ---
 
 ## 3. Row Exchanges & Permutations
