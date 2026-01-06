@@ -80,3 +80,39 @@ This method uses row elimination to solve for the inverse of a matrix.
 
 ### Matrix Representation
 If E is the product of all elimination matrices used, the process is $E[A|I] = [I|E]$. Since $EA=I$, then $E = A^{-1}$.
+
+
+# Exercises on Column Space and Nullspace
+
+## Problem 6.1 (Strang 3.1 #30)
+Suppose $S$ and $T$ are two subspaces of a vector space $V$.
+
+### a) Definition of Sum
+The sum $S + T$ contains all sums $s + t$ of a vector $s$ in $S$ and a vector $t$ in $T$. Show that $S + T$ satisfies the requirements (addition and scalar multiplication) for a vector space.
+
+**Solution:**
+Let $s, s'$ be vectors in $S$, let $t, t'$ be vectors in $T$, and let $c$ be a scalar. Then:
+* **Addition**: $(s + t) + (s' + t') = (s + s') + (t + t')$.
+* **Scalar Multiplication**: $c(s + t) = cs + ct$.
+
+Thus $S + T$ is closed under addition and scalar multiplication; in other words, it satisfies the two requirements for a vector space.
+
+### b) Sum vs. Union
+If $S$ and $T$ are lines in $\mathbb{R}^m$, what is the difference between $S + T$ and $S \cup T$? That union contains all vectors from $S$ and $T$ or both. Explain this statement: *The span of $S \cup T$ is $S + T$*.
+
+
+
+**Solution:**
+If $S$ and $T$ are distinct lines, then $S + T$ is a plane, whereas $S \cup T$ is only the two lines. The span of $S \cup T$ is the set of all combinations of vectors in this union of two lines. In particular, it contains all sums $s + t$ of a vector $s$ in $S$ and a vector $t$ in $T$, and these sums form $S + T$.
+
+Since $S + T$ contains both $S$ and $T$, it contains $S \cup T$. Further, $S + T$ is a vector space, so it contains all combinations of vectors in itself; in particular, it contains the span of $S \cup T$. Thus the span of $S \cup T$ is $S + T$.
+
+---
+
+## Problem 6.3 (Strang 3.2 #36)
+How is the nullspace $N(C)$ related to the spaces $N(A)$ and $N(B)$, if $C = \begin{bmatrix} A \\ B \end{bmatrix}$?
+
+**Solution:**
+$N(C) = N(A) \cap N(B)$ contains all vectors that are in both nullspaces:
+$$Cx = \begin{bmatrix} Ax \\ Bx \end{bmatrix} = 0$$
+if and only if $Ax = 0$ and $Bx = 0$.
