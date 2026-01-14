@@ -30,10 +30,6 @@ This folder contains notes on the decomposition of a matrix $A$ into lower and u
 * **[Pivot Variables and Special Solutions](Pivot%20Variables%20and%20Special%20Solutions.md)**: Step-by-step logic for finding the general solution to $Ax=b$.
 * **[Matrix Notes](matrixNote.md)**: General observations and miscellaneous properties of matrix operations.
 
----
-
-> [!INFO] Summary of Complexity
-> For an $n \times n$ matrix, the elimination process to reach $U$ takes approximately $\frac{1}{3}n^3$ operations. Once $L$ and $U$ are known, solving for any vector $b$ is highly efficient, requiring only $n^2$ operations.
 
 ## 🔗 External Resources
 * [Programming Languages](https://taura.github.io/programming-languages/) — Additional context on language implementations.
