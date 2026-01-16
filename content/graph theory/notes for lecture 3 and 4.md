@@ -32,17 +32,26 @@
 ## 3. Longest Paths and Vertex Removal
 
 ### **Properties of Longest Paths**
-* **Proposition:** Let $P$ be a longest path in a graph $G$, and let $u$ be an endpoint of $P$. Then $N(u) \subseteq V(P)$.
+* **Proposition:**
+$N(u)$ is the neighbouhood of u, Let $P$ be a longest path in a graph $G$, and let $u$ be an endpoint of $P$. Then $N(u) \subseteq V(P)$.
     * **Proof:** Suppose $N(u) \not\subseteq V(P)$. Then there exists $v \in N(u) \setminus V(P)$. This implies $Pv$ is a path of strictly greater length than $P$, which contradicts that $P$ is a longest path.
 
 ### **Connectivity Theorems Involving Deletion**
-* **Theorem 1.9:** Let $G$ be a graph of order $\ge 3$. If $G$ is connected, then there exist distinct $u, v \in V(G)$ such that $G-u$ and $G-v$ are connected.
-    * *Note:* This is the converse of Theorem 1.8.
+* **Theorem 1.8:** Let $G$ be a graph of order 3 or more. If $G$ contains two distinct vertices $u$ and $v$ such that $G-u$ and $G-v$ are connected, then $G$ itself is connected.  
+   
+* **Proof Strategy:**
+    * **Case 1:** For vertices $x, y \notin \{u, v\}$, since $G-u$ is connected, there is an $x-y$ path in $G-u$, which implies they are connected in $G$ 
+    * **Case 2:** To show $u$ and $v$ are connected, use a third vertex $w$ (exists since order $\ge 3$). Since $G-v$ is connected, there is a $u-w$ path. Since $G-u$ is connected, there is a $w-v$ path. Combining them produces a $u-v$ walk, ensuring they are connected.
+
+* **Theorem 1.9 (Converse of 1.8):** Let $G$ be a graph of order $\ge 3$. If $G$ is connected, then there exist distinct $u, v \in V(G)$ such that $G-u$ and $G-v$ are connected.
+
     * **Proof Strategy:**
         1.  Let $u, v$ be endpoints of a longest path $P$ in $G$.
         2.  Since $|G| \ge 3$ and connected, $u \neq v$.
         3.  To show $G-u$ is connected: Let $x, y \in V(G-u)$. Since $G$ is connected, there is an $x-y$ path in $G$.
         4.  If the path does not touch $u$, it exists in $G-u$. If it does, using the property that neighbors of the endpoint $u$ are on $P$, we can reroute the connection through $P$.
+
+
 
 * **Proposition (Leaves):** Suppose $G$ is a connected graph with a vertex $v$ of degree 1 (or generally $d(v) < 2$, implying a leaf/endpoint). Then $G-v$ is connected.
     * **Proof:** For any $x, y \in V(G)-v$, there is an $x-y$ path in $G$. Since $d(v) < 2$, $v$ cannot be an interior vertex of this path. Thus, the path exists in $G-v$.
@@ -51,10 +60,18 @@
 
 ## 4. Distance and Diameter
 
-### **Definitions**
-* **Distance ($d(x,y)$):** The length of a shortest $x-y$ path.
-* **Diameter:** The maximum distance $d(u,v)$ in a connected graph.
+### **Definitions and Properties**
+* **Distance ($d(u,v)$):** The length of a shortest $u-v$ path in $G$.
+    * If $G$ is disconnected, distance is undefined for vertices in different components.
+    * **Bounds:** In a connected graph of order $n$, $0 \le d(u, v) \le n-1$.
+* **Geodesic:** A $u-v$ path of length $d(u, v)$ (the shortest possible length) is called a **geodesic**. * **Diameter ($\text{diam}(G)$):** The greatest distance between any two vertices in a connected graph.
+    * **Property:** If $d(u, v) = \text{diam}(G)$ and $w \neq u, v$, then no $u-w$ geodesic can contain $v$. Otherwise, $d(u, w) > d(u, v) = \text{diam}(G)$, which is impossible.
 
+### **Visualizing Distance**
+* **Level Structure:** Vertices can be visualized based on their distances from a specific vertex $t$.
+    * $t$ is at the top (distance 0).
+    * Neighbors of $t$ are one level down (distance 1).
+    * Neighbors of those vertices are at the next level (distance 2), and so on. 
 ### **Triangle Inequality**
 * **Proposition:** The triangle inequality holds for distances in graphs: $d(a,b) + d(b,c) \ge d(a,c)$.
     * **Proof:** Concatenating an $a-b$ path (length $d(a,b)$) and a $b-c$ path (length $d(b,c)$) gives an $a-c$ walk. By Theorem 1.6, there exists an $a-c$ path of length $\le$ the walk length.
