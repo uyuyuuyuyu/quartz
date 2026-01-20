@@ -123,3 +123,37 @@ These notes summarize the implementation of the Y86 processor pipeline, broken d
         * **Sequential:** Default is `valP`.
         * **Jump/Call:** If taking a branch (`Cnd` is true for conditional jumps), select `valC`.
         * **Return:** Select `valM`.
+
+    ---
+    # **some implementations**
+
+    ![[image-3.png]]
+
+
+    ![[image-4.png]]
+
+# push
+
+| Stage         | Operation                                      |
+|:---           |:---                                            |
+| **Fetch** | `icode:ifun = M1[PC]`<br>`rA:rB = M1[PC+1]`<br>`valP = PC + 2` |
+| **Decode** | `valA = R[rA]`<br>`valB = R[%rsp]`             |
+| **Execute** | `valE = valB + (-8)`                           |
+| **Memory** | `M[valE] = valA`                               |
+| **Write Back**| `R[%rsp] = valE`                               |
+| **PC Update** | `PC = valP`                                    |                                   |
+
+
+# rrmovq
+| Stage         | Operation                                      |
+|:---           |:---                                            |
+| **Fetch** | `icode:ifun = M1[PC]`<br>`rA:rB = M1[PC+1]`<br>`valP = PC + 2` |
+| **Decode** | `valA = R[rA]`                                 |
+| **Execute** | `valE = 0 + valA`                              |
+| **Memory** | *(No operation)* |
+| **Write Back**| `R[rB] = valE`                                 |
+| **PC Update** | `PC = valP`                                    |
+
+
+
+![[y86ImplementationDiagram.png]]

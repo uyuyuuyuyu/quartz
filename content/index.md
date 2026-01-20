@@ -4,7 +4,7 @@ Index for all notes under `content/`.
 
 ## Computer System
 Related: Computer System
-* [Index](Computer%20System/Computer%20System%20Index.md): Section index for computer system notes.
+* [Index](Computer%20System/index.md): Section index for computer system notes.
 * [Overview](Computer%20System/Overview.md): Course/system overview and CPU-related notes.
 * [Floating Points](Computer%20System/Floating%20Points.md): Floating-point representation, precision, and arithmetic pitfalls.
 * [Y86 Implementations](Computer%20System/Y86%20Implementations.md): Y86 architecture details and implementation notes.
@@ -12,13 +12,13 @@ Related: Computer System
 
 ## Graph Theory
 Related: Graph Theory
-* [Index](Graph%20Theory/Graph%20Theory%20Index.md): Section index for graph theory notes.
+* [Index](Graph%20Theory/index.md): Section index for graph theory notes.
 * [L03-04 - Walks Paths Connectivity](Graph%20Theory/L03-04%20-%20Walks%20Paths%20Connectivity.md): Walks, paths, connectivity, distance, diameter, and degree conditions.
 * [Degree Sequences - Havel Hakimi](Graph%20Theory/Degree%20Sequences%20-%20Havel%20Hakimi.md): Graphical degree sequences and the Havel-Hakimi process.
 
 ## Linear Algebra
 Related: Linear Algebra
-* [Index](Linear%20Algebra/Linear%20Algebra%20Index.md): Section index for linear algebra notes.
+* [Index](Linear%20Algebra/index.md): Section index for linear algebra notes.
 * [A=LU](Linear%20Algebra/A=LU/A=LU.md): LU factorization and Gaussian elimination as matrix products.
 * [Solving-Ax=b](Linear%20Algebra/A=LU/Solving-Ax=b.md): Forward/back substitution using LU factors.
 * [Pivot Variables and Special Solutions](Linear%20Algebra/A=LU/Pivot%20Variables%20and%20Special%20Solutions.md): Identifying pivots and describing solution sets.
@@ -31,4 +31,4 @@ Related: Linear Algebra
 
 ## Miscellaneous
 Related: Miscellaneous
-* [Index](miscs/Miscellaneous%20Index.md): External resources and checklists.
+* [Index](miscs/index.md): External resources and checklists.

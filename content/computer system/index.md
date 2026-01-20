@@ -1,4 +1,8 @@
-# Computer System Index
+---
+title: Computer System
+---
+
+# Computer System
 
 Related: Computer System
 

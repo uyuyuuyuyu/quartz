@@ -1,4 +1,8 @@
-# Linear Algebra Index
+---
+title: Linear Algebra
+---
+
+# Linear Algebra
 
 Related: Linear Algebra
 

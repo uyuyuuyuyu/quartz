@@ -127,3 +127,39 @@ square:
     # ... calculation logic ...
     popq %rbx            # Restore %rbx; increments %rsp by 8
     ret                  # Pop return address and jump back to 'main'
+
+
+```
+
+# pc increment
+
+uint64_t increment_pc(uint64_t pc, y86_icode_t icode) {
+    switch(icode) {
+        // 1-byte instructions
+        case 0x0: // I_HALT
+        case 0x1: // I_NOP
+        case 0x9: // I_RET
+            return pc + 1;
+
+        // 2-byte instructions
+        case 0x2: // I_RRMOVQ
+        case 0x6: // I_OPQ
+        case 0xA: // I_PUSHQ
+        case 0xB: // I_POPQ
+            return pc + 2;
+
+        // 9-byte instructions
+        case 0x7: // I_JXX
+        case 0x8: // I_CALL
+            return pc + 9;
+
+        // 10-byte instructions
+        case 0x3: // I_IRMOVQ
+        case 0x4: // I_RMMOVQ
+        case 0x5: // I_MRMOVQ
+            return pc + 10;
+            
+        default:
+            return pc;
+    }
+}

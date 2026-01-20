@@ -1,4 +1,8 @@
-# Graph Theory Index
+---
+title: Graph Theory
+---
+
+# Graph Theory
 
 Related: Graph Theory
 
