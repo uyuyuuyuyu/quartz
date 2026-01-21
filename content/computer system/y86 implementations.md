@@ -125,7 +125,7 @@ These notes summarize the implementation of the Y86 processor pipeline, broken d
         * **Return:** Select `valM`.
 
     ---
-    # **some implementations**
+# **some implementations**
 
     ![[image-3.png]]
 
