@@ -127,10 +127,10 @@ These notes summarize the implementation of the Y86 processor pipeline, broken d
     ---
 # **some implementations**
 
-    ![[image-3.png]]
+![[image-3.png]]
 
 
-    ![[image-4.png]]
+![[image-4.png]]
 
 # push
 
