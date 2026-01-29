@@ -128,3 +128,5 @@ This method uses `%rbp` as a **Frame Pointer** to provide a stable reference poi
 
 
     ![[image-2.png]]
+
+    
