@@ -10,3 +10,8 @@ Related: Computer System
 * [Floating Points](Floating%20Points.md): Floating-point representation, precision, and arithmetic pitfalls.
 * [Y86 Implementations](Y86%20Implementations.md): Y86 architecture details and implementation notes.
 * [Y86 Functions](Y86%20Functions.md): Y86 instruction/function behavior and usage.
+
+
+# miscs
+
+* [reference](https://drive.google.com/drive/folders/1QWgQHZmA0YjQaQHsqJxWzo8MZAUpsSek):reference for the instruction sets etc.
