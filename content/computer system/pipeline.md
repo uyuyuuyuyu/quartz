@@ -42,3 +42,41 @@
 
 ## 6. Challenges
 * **Hazards:** Pipelining introduces logical problems (dependencies) when an instruction needs data that hasn't been computed or written back by a previous instruction yet.
+
+# Drawbacks & Limitations of Pipelining
+
+While pipelining increases **throughput** (instructions per second), it is not a perfect system. There are three main factors that limit its performance.
+
+## 1. Nonuniform Partitioning (Imbalanced Stages)
+Ideally, a computation is split into equal-length stages. In reality, hardware units (like ALUs or Memory) are difficult to subdivide perfectly.
+
+*   **The Problem:** Some stages will inevitably be slower than others.
+*   **The Constraint:** The clock cycle *must* be set to accommodate the **slowest stage**.
+*   **The Consequence:**
+    *   Faster stages sit **idle** (wasting time) waiting for the slow stage to finish.
+    *   *Example:* If Stage A takes 50ps but Stage B takes 150ps, the clock must run at 150ps (+ overhead). Stage A is idle for 100ps every cycle.
+
+## 2. Diminishing Returns (Pipeline Overhead)
+Adding more stages (deep pipelining) generally increases speed, but there is a "tax" for every stage added.
+
+*   **The Problem:** Pipeline registers are not instant. They have a fixed delay (e.g., 20 ps) to capture data.
+*   **The Constraint:** Total Cycle Time = `Logic Time` + `Register Delay`.
+*   **The Consequence:**
+    *   As you split logic into smaller and smaller pieces, the **register delay** becomes a larger percentage of the total clock cycle.
+    *   Eventually, the overhead outweighs the benefit of splitting the stages.
+    *   **Latency increases:** The time to complete a single instruction gets longer due to the accumulated delay of passing through many registers.
+
+## 3. Logical Dependencies (System with Feedback)
+Pipelining assumes instructions are independent, but real programs (x86-64/Y86) have instructions that rely on each other.
+
+*   **Data Dependencies:**
+    *   Occurs when an instruction needs a value that the previous instruction hasn't finished calculating yet.
+    *   *Example:*
+        1. `irmovq $50, %rax` (Writes to %rax)
+        2. `addq %rax, %rbx` (Reads %rax immediately)
+    *   In a pipeline, Instruction 2 tries to read `%rax` before Instruction 1 has written to it.
+
+*   **Control Dependencies:**
+    *   Occurs due to conditional jumps (`jne`, `je`).
+    *   The processor needs to load the next instruction immediately, but the "Jump" instruction is still in the pipeline and hasn't decided if it should jump yet.
+    *   This requires "feedback paths" or stalling to ensure the correct instruction is executed.

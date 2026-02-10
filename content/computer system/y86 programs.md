@@ -118,7 +118,6 @@ return:
 
 
 
-![[image-5.png)]]
-
+![[image-5.png]]
 
 the actual write happens at the start of next cycle
